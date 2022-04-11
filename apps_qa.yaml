@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Application
 metadata:
-  name: guestbook
+  name: guestbook-qa
   namespace: default
 spec:
   project: default
   source: 
-    path: envs
+    path: envs/qa
     repoURL: https://github.com/mihairusan/app_monorepo.git
     targetRevision: HEAD
   destination:
-    namespace: production
+    namespace: qa
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
-      selfHeal: true
       prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
