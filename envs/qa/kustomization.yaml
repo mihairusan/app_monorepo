@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - guestbook-ui-deployment.yaml
-  - guestbook-ui-service.yaml
+  - guestbook-ui-svc.yaml
