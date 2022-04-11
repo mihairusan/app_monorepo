@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: default
+spec:
+  project: default
+  source: 
+    path: envs
+    repoURL: https://github.com/mihairusan/app_monorepo.git
+    targetRevision: HEAD
+  destination:
+    namespace: production
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
